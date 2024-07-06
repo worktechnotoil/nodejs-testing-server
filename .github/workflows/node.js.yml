@@ -9,7 +9,7 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        node-version: ['lts/*']  # This will automatically use the latest LTS version of Node.js
+        node-version: ['lts/*']  
 
  steps:
     - uses: actions/checkout@v3

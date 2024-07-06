@@ -9,8 +9,7 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        node-version: ['lts/*']
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: ['lts/*']  # This will automatically use the latest LTS version of Node.js
 
     steps:
     - uses: actions/checkout@v4
@@ -20,8 +19,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-      working-directory: ./path-to-subdirectory
+      working-directory: ./nodejs-testing-server  # Set the correct working directory
     - run: |
         touch .env
         echo "${{ secrets.Dev_ENV }}" > .env
-      working-directory: ./path-to-subdirectory
+      working-directory: ./nodejs-testing-server  # Set the correct working directory
